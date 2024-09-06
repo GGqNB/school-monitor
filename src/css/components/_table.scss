@@ -1,0 +1,135 @@
+// TODO: s-table Не сделано
+.s-table {
+  // max-height: 65vh;
+  .q-table__middle.scroll {
+    @include scrollbar;
+  }
+  table {
+    // width: 100%;
+
+    thead {
+      tr {
+        th {
+          font-size: $font-size-base-xl;
+          text-align: center;
+          position: sticky;
+          z-index: 1;
+          padding: 15px !important;
+          max-width: 300px;
+          // word-break: break-word;
+          white-space: pre-wrap;
+        }
+        &:first-child {
+          th {
+            top: 0;
+          }
+        }
+      }
+    }
+
+    tbody {
+      .deleted {
+        background-color: rgb(247, 171, 171);
+      }
+      .unactive {
+        background-color: rgba($warning, 0.05);
+      }
+      tr {
+        td {
+          max-width: 300px;
+          white-space: normal;
+          // word-break: break-word;
+          font-size: $font-size-base-xl;
+          font-weight: 400;
+        }
+        .tr-action_button {
+          text-align: center;
+          padding: 0!important;
+          max-width: 80px;
+          width: 50px !important;
+        }
+        &:hover {
+          background-color: rgb(214, 204, 204);
+        }
+      }
+    }
+  }
+  &.s-dense {
+    tbody {
+      tr {
+        td {
+          padding: 2px 4px;
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}
+
+.s-table--wrapper {
+  table {
+    // width: 100%;
+    border-radius: 5px;
+  }
+  &.bordered {
+    table {
+      border-spacing: 0;
+      border: 2px solid #E4ECF7;
+      // хедер
+      thead {
+        tr {
+          th {
+            background-color: #E4ECF7;
+            padding-top: 20px !important;
+            padding-bottom: 20px !important;
+            border-right: 1px solid #E4ECF7;
+            border-bottom: 2px solid #E4ECF7;
+            &:first-child {
+              border-top-left-radius: 2px;
+            }
+            // Последняя ячейка в хедере
+            &:last-child {
+              border-right: 0;
+              border-top-right-radius: 2px;
+            }
+          }
+        }
+      }
+      // тело
+      tbody {
+        // max-width: 150px !important;
+        tr {
+          td {
+            white-space: pre-wrap;
+            // word-wrap: break-word;
+            // overflow-wrap: break-word;
+            // max-width: 100%;
+            // max-height: 6em; /* Вы можете изменить значение для трех строк */
+            line-height: 1.2em;
+            padding-top: 18px !important;
+            padding-bottom: 18px !important;
+            border-right: 1px solid #E4ECF7;
+            &:last-child {
+              border-right: 0;
+            }
+          }
+          .tr-action_button {
+            text-align: center;
+            padding: 0!important;
+            max-width: 80px;
+            width: 50px !important;
+          }
+          &:last-child {
+            td {
+              border-bottom: 0;
+            }
+          }
+          &:hover {
+            background-color: #E4ECF7;
+          }
+
+        }
+      }
+    }
+  }
+}
