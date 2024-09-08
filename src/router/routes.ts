@@ -12,16 +12,16 @@ const routes: RouteRecordRaw[] = [
     path: '/',
     component: () => import('layouts/MainLayout.vue'),
     children: [
-      { path: '', component: AdministrationBoardPage, name: 'add_number' },
+      { path: '', component: AdministrationBoardPage, name: 'admin_board' },
     ],
     meta: {
       title: 'STOWN',
     },
   },
   {
-    path: '/add_device',
+    path: '/director_board',
     component: () => import('layouts/MainLayout.vue'),
-    children: [{ path: '', component: DirectorBoardPage, name: 'add_device' }],
+    children: [{ path: '', component: DirectorBoardPage, name: 'director_board' }],
     meta: {
       title: 'STOWN',
     },

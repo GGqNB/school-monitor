@@ -7,7 +7,7 @@
             <s-select class="select-setting" label="Школа №1"></s-select>
         </div>
     </div>
-    <div class="temp-wrapper-2 flex justify-center ">
+    <div class="temp-wrapper-2  " :class="isMobile ? '':'flex justify-center'">
         <div class="">
             <div class="mt-base-35    
       ">
@@ -107,6 +107,7 @@ import {
 import {
     useList
 } from '../composables/useList';
+import { useDeviceSizes } from 'src/composables/useDeviceSizes';
 export default defineComponent({
     name: 'NFCPage',
     components: {
@@ -133,6 +134,8 @@ export default defineComponent({
             TABLE_COLUMNS_CONTROL
         } = useList();
         const tableData = ref([]);
+      const { isMobile } = useDeviceSizes();
+
         const tableControlData = ref([{
             temp: 10,
             temp_obr: 15,
@@ -184,7 +187,8 @@ export default defineComponent({
             goUpload,
             tableData,
             TABLE_COLUMNS_CONTROL,
-            tableControlData
+            tableControlData,
+            isMobile
         };
     },
 });

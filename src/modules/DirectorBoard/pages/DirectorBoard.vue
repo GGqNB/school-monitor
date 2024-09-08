@@ -3,7 +3,7 @@
     <s-header :create-btn="false" title="Показатели школы(Директор)" />
     <div class="">
 
-        <div class="mt-base-35"> DirectorBoard<br>Доступные учреждения</div>
+        <h5 class="mt-base-35">Доступные показатели</h5>
         <div class="mt-base-25">
             <q-table
                 class="s-table--wrapper bordered "

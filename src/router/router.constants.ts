@@ -1,4 +1,4 @@
-export const routerMainPageName = 'add_number';
+export const routerMainPageName = 'admin_board';
 
 export const routerInitialPath = '/';
 

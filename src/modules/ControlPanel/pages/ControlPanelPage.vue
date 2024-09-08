@@ -21,7 +21,7 @@
             >
             </q-table>
             </div>
-            <div class="ml-base-35">
+            <div :class="isMobile ? ' mt-base-35':'ml-base-35'">
             <q-table
                 class="s-table--wrapper bordered "
                 table-class="s-table"
@@ -38,6 +38,9 @@
             </q-table>
             </div>
       </div>
+      <div class="main_footer">
+
+</div>
     </s-page>
   </template>
   <script lang="ts">
@@ -48,6 +51,7 @@ import { Tables } from 'src/declarations/components/table';
 import {
     TABLE_SETTINGS
 } from 'src/constants/table-settings';
+import { useDeviceSizes } from 'src/composables/useDeviceSizes';
   
   export default defineComponent({
     name: 'SettingDevicePage',
@@ -58,7 +62,7 @@ import {
 
       } = useList();
       
-
+      const { isMobile } = useDeviceSizes();
      
       const TABLE_COLUMNS: Array < Tables.TableColumn > = [{
                 name: 'temp_1',
@@ -118,7 +122,8 @@ import {
         data_2,
         TABLE_COLUMNS,
         TABLE_COLUMNS_2,
-        TABLE_SETTINGS
+        TABLE_SETTINGS,
+        isMobile
       };
     },
   });

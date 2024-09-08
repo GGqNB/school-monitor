@@ -8,6 +8,7 @@ export type MenuItem = {
   icon: string | null;
   children: Array<MenuItem> | [];
   permission?: (user: any) => boolean;
+  isAdmin: boolean;
 };
 
 // const userCanAny = (...args: Array<string | Array<string>>) => (user: UserInfo) => {
@@ -25,20 +26,22 @@ const menuItemsList: Array<MenuItem> = [
     id: 1,
     ordinalNum: 1,
     title: 'Общий вид Администрации',
-    routeName: 'add_number',
+    routeName: 'admin_board',
     index: '1',
     icon: 'tune',
     children: [],
+    isAdmin: true,
     // permission: userCanAny(permissionSet.service.list),
   },
   {
     id: 2,
     ordinalNum: 2,
     title: 'Страница директора школы',
-    routeName: 'add_device',
+    routeName: 'director_board',
     index: '2',
     icon: 'tune',
     children: [],
+    isAdmin: false,
     // permission: userCanAny(permissionSet.service.list),
   },
   // {
@@ -59,6 +62,7 @@ const menuItemsList: Array<MenuItem> = [
     index: '4',
     icon: 'tune',
     children: [],
+    isAdmin: false,
     // permission: userCanAny(permissionSet.service.list),
   },
   {
@@ -69,6 +73,8 @@ const menuItemsList: Array<MenuItem> = [
     index: '4',
     icon: 'tune',
     children: [],
+    isAdmin: false,
+
     // permission: userCanAny(permissionSet.service.list),
   },
 ];

@@ -3,13 +3,13 @@
     
     <s-header
       :create-btn="false"
-      title="Осмотр учреждений(Администрация)"
+      title="Осмотр учреждений"
     />
     <div class="home_wrapper">
     
-      <div class="home_wrapper">
-    <h5 class="mt-base-35">Доступные учреждения</h5>
-    <div class="grid" >
+      <div class="home_wrapper ">
+    <h5 class="mt-base-25">Доступные учреждения</h5>
+    <div class="grid " >
       <div @click="handleClick(index)"  v-for="(block, index) in items" :key="index">
         <div class="block-1" :class="block.ok? 'bg-brand-warning' : 'bg-danger '">
           <div class="flex justify-center items-center">

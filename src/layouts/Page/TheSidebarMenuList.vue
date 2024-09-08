@@ -12,6 +12,8 @@
           :style="`padding-left:${
             (item.icon !== null ? level : level * 3) * 5 + paddingLeftLevel
           }px`"
+          v-if="isAdmin(item.isAdmin)"
+          
         >
           <q-tooltip
           
@@ -62,6 +64,7 @@ import { computed, defineComponent } from 'vue';
 
 
 import { MenuItem } from './sidebar-menu-list';
+import { useUserStore } from 'src/stores/user.store';
 
 export default defineComponent({
   name: 'TheSidebarMenuList',
@@ -82,8 +85,12 @@ export default defineComponent({
   setup(props) {
 
     // const appStore = useAppStore();
-    // const userStore = useUserStore();
-
+    const userStore = useUserStore();
+    const isAdmin = (val: boolean) => {
+      if(userStore.getIsAdmin == val){
+        return true
+      }
+    }
     // const { miniCollapseSidebar } = storeToRefs(appStore);
 
     const paddingLeftLevel = 12;
@@ -121,6 +128,7 @@ export default defineComponent({
 
       filteredMenuItemsList,
       hasChildren,
+      isAdmin
       // isItemHaveActiveChild,
     };
   },

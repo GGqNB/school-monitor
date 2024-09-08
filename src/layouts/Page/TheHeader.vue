@@ -23,7 +23,9 @@
             </div>
     
             <q-space />
-            <div class="flex justify-end mt-base-10">
+            <div class="">
+                Я Администрация 
+                <q-checkbox v-model="isAdmin" @click="changeStatusAdmin"/>
             </div>
         </q-toolbar>
     </q-header>
@@ -40,7 +42,8 @@
         defineComponent,
         onMounted,
         ref,
-        watch
+        watch,
+        computed
     } from 'vue';
     import {
         storeToRefs
@@ -70,7 +73,7 @@
     } from 'src/composables/useLoading';
     import UserApi from 'src/backend/api/classes/UserApiClass';
     import { useDeviceSizes } from 'src/composables/useDeviceSizes';
-    
+import { useUserStore } from 'src/stores/user.store';
     // import { HeaderProfileLink } from 'SharedComponents/header/profile.d';
     // import { useLocalAuthStore } from 'AdminDir/stores/auth.store';
     // import { useUserStore } from 'AdminDir/stores/user.store';
@@ -87,7 +90,7 @@
             const appStore = useAppStore();
             const indicatorStore = useIndicatorStore();
             // const authStore = useLocalAuthStore();
-            // const userStore = useUserStore();
+            const userStore = useUserStore();
             const phone = ref('');
             // const getUser = async () => {
             //     try {
@@ -110,7 +113,15 @@
             const changeVisibilitySidebar = () => {
                 appStore.setCollapseSidebar(!collapseSidebar.value);
             };
-    
+            const isAdmin = computed(() => userStore.getIsAdmin);
+            const changeStatusAdmin = () =>{
+                userStore.setIsAdmin(!userStore.getIsAdmin)
+                if(userStore.getIsAdmin == true){
+                    router.push('/');
+                }else{
+                    router.push('/director_board');
+                }
+            }
             // const checkWifi = async () => {
             //     const response = await makeRequest(async () => NetworkApi.active());
             //     if (response.length !== 0) {
@@ -166,6 +177,8 @@
                 changeVisibilitySidebar,
                 phone,
                 isMobile,
+                isAdmin,
+                changeStatusAdmin
                 // wifi_flag,
                 // phone_flag,
                 // currentNetwork,

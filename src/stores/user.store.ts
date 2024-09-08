@@ -4,6 +4,7 @@ import { defineStore } from 'pinia';
 export interface UserStateInterface {
   phone: string;
   uuid: string;
+  isAdmin : boolean;
 }
 
 export const useUserStore = defineStore('user', {
@@ -12,16 +13,21 @@ export const useUserStore = defineStore('user', {
   state: (): UserStateInterface => ({
     phone: '',
     uuid: '',
+    isAdmin : false,
   }),
 
   getters: {
     getPhone: (state: UserStateInterface) => state.phone,
     getUuid: (state: UserStateInterface) => state.uuid,
+    getIsAdmin: (state: UserStateInterface) => state.isAdmin,
     watchUuid: (state): string => {
       return state.uuid;
     },
     watchPhone: (state): string => {
       return state.phone;
+    },
+    watchIsAdmin: (state): boolean => {
+      return state.isAdmin;
     }
   },
 
@@ -31,6 +37,9 @@ export const useUserStore = defineStore('user', {
     },
     setUuid(val: string) {
       this.uuid = val;
+    },
+    setIsAdmin(val: boolean) {
+      this.isAdmin = val;
     },
   },
 });
