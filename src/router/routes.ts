@@ -30,6 +30,7 @@ const routes: RouteRecordRaw[] = [
     path: '/setting_house',
     component: () => import('layouts/MainLayout.vue'),
     children: [{ path: '', component: SettingHousedPage, name: 'setting_house' }],
+    
     meta: {
       title: 'STOWN',
     },
