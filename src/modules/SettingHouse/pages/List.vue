@@ -1,18 +1,17 @@
 <template>
 <s-page>
 
-    <s-header :create-btn="false" title="Правила реагирования" />
+    <s-header :create-btn="false" title="Параметры учреждений" />
     <div>
-        <div class=" flex justify-center mt-base-35">
-            <s-select class="select-setting" label="Школа №1"></s-select>
-        </div>
+
     </div>
     <div class="temp-wrapper-2  " :class="isMobile ? '':'flex justify-center'">
         <div class="">
             <div class="mt-base-35    
       ">
-                <h5>Школа №1</h5>
-                <q-table
+                <h5 class="ml-base-25">Гимназия №4</h5>
+                <!-- <q-table
+                    rotate-headers
                     class="s-table--wrapper bordered "
                     table-class="s-table"
                     dense
@@ -24,20 +23,27 @@
                     :rows-per-page-options="TABLE_SETTINGS.ROWS_PER_PAGE_LIST"
                     :rows-per-page-label="TABLE_SETTINGS.ROWS_PER_PAGE_LABEL"
                     hide-bottom
-                    row-direction="row"
                 >
-                    <!-- <template #body-cell-time_1="props">
+                    <template #body-cell-time_1="props">
                         <q-td :props="props" :class="props.value>0 ? 'bg-error-td':''">
                             {{ props.value }}
                         </q-td>
-                    </template> -->
+                    </template>
          <template v-slot:body="props">
-          <q-tr :props="props" class="q-virtual-scroll--with-prev">
-            <q-td colspan="100%">
-              <div class="text-left"> {{ props.row.label }}</div>
-            </q-td>
-          </q-tr>
+        
         <q-tr :props="props">
+          <q-td
+            key="org"
+            :props="props"
+          >
+            {{ props.row.label }}
+          </q-td>
+          <q-td
+            key="time_request"
+            :props="props"
+          >
+            {{ props.row.time_request }}
+          </q-td>
           <q-td
             key="temp"
             :props="props"
@@ -78,7 +84,35 @@
           </q-td>
         </q-tr>
       </template>
+                </q-table> -->
+                <div class="setting-param-table">
+                  
+                <q-table
+                    class="s-table--wrapper bordered "
+                    table-class="s-table"
+                    dense
+                    flat
+                    :rows="tableData"
+                    :columns="TABLE_COLUMNS"
+                    :no-data-label="TABLE_SETTINGS.NO_DATA_LABEL"
+                    :no-results-label="TABLE_SETTINGS.NO_RESULTS_LABEL"
+                    :rows-per-page-options="TABLE_SETTINGS.ROWS_PER_PAGE_LIST"
+                    :rows-per-page-label="TABLE_SETTINGS.ROWS_PER_PAGE_LABEL"
+                    hide-bottom
+                    row-direction="row"
+                >
+                <template #body-cell-val_1="props">
+                        <q-td :props="props" :class="props.value>20 ? 'bg-error-td':''">
+                            {{ props.value }}
+                        </q-td>
+                    </template>
+                    <template #body-cell-val_2="props">
+                        <q-td :props="props" :class="props.value>20 ? 'bg-error-td':''">
+                            {{ props.value }}
+                        </q-td>
+                    </template>
                 </q-table>
+                </div>
             </div>
         </div>
       
@@ -133,10 +167,47 @@ export default defineComponent({
             goUpload,
             TABLE_COLUMNS_CONTROL
         } = useList();
-        const tableData = ref([]);
+        const tableData = ref([
+          {
+            type: 'Время опроса',
+            val_1: '09.09.2024 12:35',
+            val_2: '09.09.2024 12:35',
+          },
+          {
+            type: 'Температура (подающий трубопровод) ',
+            val_1: 15,
+            val_2: 15,
+          },
+          {
+            type: 'Температура (обратный трубопровод) ',
+            val_1: 20,
+            val_2: 20,
+          },
+          {
+            type: 'Давление 1, Мпа ',
+            val_1: 20,
+            val_2: 20,
+          },
+          {
+            type: 'Давление 2, Мпа ',
+            val_1: 25,
+            val_2: 20,
+          },
+          {
+            type: 'Время наработки, ч.',
+            val_1: 15,
+            val_2: 17,
+          },
+          {
+            type: 'Время работы узла, ч.',
+            val_1: 17,
+            val_2: 30,
+          },
+        ]);
       const { isMobile } = useDeviceSizes();
 
         const tableControlData = ref([{
+            time_request: '09.09.2024',
             temp: 10,
             temp_obr: 15,
             pressure_1: 20,
@@ -146,6 +217,7 @@ export default defineComponent({
             label:'Школа №1. Старшая школа',
         },
         {
+            time_request: '09.09.2024',
             temp: 10,
             temp_obr: 15,
             pressure_1: 20,
@@ -155,20 +227,6 @@ export default defineComponent({
             label:'Школа №1. Младшая школа',
 
         }]);
-        const generateTableData = () => {
-            for (let i = 50; i >= -50; i -= 5) {
-                let supplyTemp = 30;
-                let counter = 0;
-                if (i <= 10) {
-                    counter++
-                }
-                tableData.value.push({
-                    outer_temp: i,
-                    supplyTemp: supplyTemp + counter * 5
-                });
-            }
-        }
-        onMounted(() => generateTableData())
         return {
             rfidCurrent,
             filterParams,
@@ -188,7 +246,7 @@ export default defineComponent({
             tableData,
             TABLE_COLUMNS_CONTROL,
             tableControlData,
-            isMobile
+            isMobile,
         };
     },
 });
@@ -198,13 +256,15 @@ export default defineComponent({
 /* .rotate-90{
   transform: rotate(-90deg);
 } */
-.col-name,
-.col-age {
+.for-test {
     transform: rotate(90deg);
 }
 
 .bg-error-td {
     background-color: rgb(241, 59, 59) !important;
     color: white !important;
+}
+.setting-param-table{
+  max-width: 500px;
 }
 </style>

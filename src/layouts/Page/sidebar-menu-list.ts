@@ -25,7 +25,7 @@ const menuItemsList: Array<MenuItem> = [
   {
     id: 1,
     ordinalNum: 1,
-    title: 'Общий вид Администрации',
+    title: 'Осмотр учреждений',
     routeName: 'admin_board',
     index: '1',
     icon: 'tune',
@@ -36,7 +36,7 @@ const menuItemsList: Array<MenuItem> = [
   {
     id: 2,
     ordinalNum: 2,
-    title: 'Страница директора школы',
+    title: 'Показатели школы',
     routeName: 'director_board',
     index: '2',
     icon: 'tune',
@@ -62,13 +62,13 @@ const menuItemsList: Array<MenuItem> = [
     index: '4',
     icon: 'tune',
     children: [],
-    isAdmin: false,
+    isAdmin: true,
     // permission: userCanAny(permissionSet.service.list),
   },
   {
     id: 4,
     ordinalNum: 4,
-    title: 'Параметры объекта',
+    title: 'Параметры учреждений',
     routeName: 'setting_house',
     index: '4',
     icon: 'tune',

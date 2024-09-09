@@ -16,6 +16,7 @@ const routes: RouteRecordRaw[] = [
     ],
     meta: {
       title: 'STOWN',
+      authorization: true,
     },
   },
   {
@@ -24,15 +25,18 @@ const routes: RouteRecordRaw[] = [
     children: [{ path: '', component: DirectorBoardPage, name: 'director_board' }],
     meta: {
       title: 'STOWN',
+      authorization: false,
     },
   },
   {
     path: '/setting_house',
     component: () => import('layouts/MainLayout.vue'),
     children: [{ path: '', component: SettingHousedPage, name: 'setting_house' }],
-    
+
     meta: {
       title: 'STOWN',
+      authorization: true,
+
     },
   },
 
@@ -42,6 +46,8 @@ const routes: RouteRecordRaw[] = [
     children: [{ path: '', component: ControlPanelPage, name: 'control_page' }],
     meta: {
       title: 'STOWN',
+      authorization: true,
+
     },
   },
   // Always leave this as last one,

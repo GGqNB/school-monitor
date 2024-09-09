@@ -2,7 +2,7 @@
     <s-page>
       <s-header
         :create-btn="false"
-        title="Правила реагирования"
+        title="Реагирование показателей"
       />
       <div class="flex justify-center m-base-35">
         <div>

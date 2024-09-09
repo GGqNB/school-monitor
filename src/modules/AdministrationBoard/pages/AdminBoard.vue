@@ -17,10 +17,26 @@
           </div>
         </div>
         <s-dialog :show="activeBlock == index" class="content-block" :rightIconClose="false" :title="block.title">
-          <div>
-            {{ block.title }}
+          <div class="fs-base-med " v-if="!block.ok">
+            <div>
+              Проблемные показатели: 
+            </div>
+            <div class="flex ">
+             Старшая школа -  <span class="text-red">Давление 2, Мпа -&nbsp;25 &nbsp;</span> на 09.09.2024 12:35
+            </div>
+            <div class="flex  ">
+              Младшая школа - <span class="text-red">Время работы узла ч.&nbsp; - &nbsp;30&nbsp;</span> на 08.09.2024 12:35
+            </div>
           </div>
-          <q-btn @click="activeBlock=null">exit</q-btn>
+          <div class="fs-base-med " v-else>
+            <div>
+             Проблем нет
+            </div>
+            </div>
+            <template v-slot:footer>
+              <s-btn @click="activeBlock=null" width="base-xl">Закрыть</s-btn>
+            </template>
+        
         </s-dialog>
       </div>
     </div>

@@ -14,22 +14,45 @@ import { useNotifications } from 'src/composables/useNotifications';
 export function useList(){ 
 
  const users = ref([]);
- const TABLE_COLUMNS: Array < Tables.TableColumn > = [{
-    name: 'outer_temp',
-    label: 'Температура (°С) Окружающего воздуха',
-    field: 'outer_temp',
+ const TABLE_COLUMNS: Array < Tables.TableColumn > = [
+  {
+    name: 'type',
+    label: 'Параметр',
+    field: 'type',
+    align: 'center',
+    sortable: false,
+},
+  {
+    name: 'val_1',
+    label: 'Гимназия №4 Старшая школа',
+    field: 'val_1',
     align: 'center',
     sortable: false,
 },
 {
-    name: 'supplyTemp',
-    label: 'Температура подачи',
-    field: 'supplyTemp',
+    name: 'val_2',
+    label: 'Гимназия №4 Младшая школа',
+    field: 'val_2',
     align: 'center',
     sortable: true,
 },
 ];
-const TABLE_COLUMNS_CONTROL: Array < Tables.TableColumn > = [{
+const TABLE_COLUMNS_CONTROL: Array < Tables.TableColumn > = [
+  {
+    name: 'org',
+    label: 'Объект',
+    field: 'org',
+    align: 'center',
+    sortable: false,
+  },
+  {
+    name: 'time_request',
+    label: 'Время опроса',
+    field: 'time_request',
+    align: 'center',
+    sortable: false,
+  },
+  {
   name: 'temp',
   label: 'Температура (подающий трубопровод) ',
   field: 'temp',
