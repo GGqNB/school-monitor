@@ -6,7 +6,7 @@
 
     </div>
     <div class="flex justify-center mt-base-25">
-      <s-select label="Гимназия №1" class="setting_select"/>
+      <s-select label="Школа №1" class="setting_select"/>
     </div>
     <div class="temp-wrapper-2  " :class="isMobile ? '':'flex justify-center'">
         <div class="">

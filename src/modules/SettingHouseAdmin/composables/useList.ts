@@ -24,14 +24,14 @@ export function useList(){
 },
   {
     name: 'val_1',
-    label: 'Гимназия №1 Старшая школа',
+    label: 'Школа №1 Старшая школа',
     field: 'val_1',
     align: 'center',
     sortable: false,
 },
 {
     name: 'val_2',
-    label: 'Гимназия №1 Младшая школа',
+    label: 'Школа №1 Младшая школа',
     field: 'val_2',
     align: 'center',
     sortable: true,

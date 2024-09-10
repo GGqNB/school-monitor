@@ -175,7 +175,7 @@ export default defineComponent({
           },
           {
             type: 'Температура (подающий трубопровод) ',
-            val_1: 15,
+            val_1: 25,
             val_2: 15,
           },
           {
@@ -190,7 +190,7 @@ export default defineComponent({
           },
           {
             type: 'Давление 2, Мпа ',
-            val_1: 25,
+            val_1: 20,
             val_2: 20,
           },
           {
@@ -201,7 +201,7 @@ export default defineComponent({
           {
             type: 'Время работы узла, ч.',
             val_1: 17,
-            val_2: 30,
+            val_2: 20,
           },
         ]);
       const { isMobile } = useDeviceSizes();
