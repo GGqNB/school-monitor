@@ -1,7 +1,7 @@
 <template>
 <s-page>
 
-    <s-header :create-btn="false" title="Параметры учреждений" />
+    <s-header :create-btn="false" title="Параметры учреждений." />
     <div>
 
     </div>
