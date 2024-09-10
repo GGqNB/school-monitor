@@ -5,11 +5,13 @@
     <div>
 
     </div>
+    <div class="flex justify-center mt-base-25">
+      <s-select label="Гимназия №1" class="setting_select"/>
+    </div>
     <div class="temp-wrapper-2  " :class="isMobile ? '':'flex justify-center'">
         <div class="">
             <div class="mt-base-35    
       ">
-                <h5 class="ml-base-25">Школа №1</h5>
                 <!-- <q-table
                     rotate-headers
                     class="s-table--wrapper bordered "
@@ -175,7 +177,7 @@ export default defineComponent({
           },
           {
             type: 'Температура (подающий трубопровод) ',
-            val_1: 15,
+            val_1: 25,
             val_2: 15,
           },
           {
@@ -190,7 +192,7 @@ export default defineComponent({
           },
           {
             type: 'Давление 2, Мпа ',
-            val_1: 25,
+            val_1: 20,
             val_2: 20,
           },
           {
@@ -201,7 +203,7 @@ export default defineComponent({
           {
             type: 'Время работы узла, ч.',
             val_1: 17,
-            val_2: 30,
+            val_2: 20,
           },
         ]);
       const { isMobile } = useDeviceSizes();
@@ -261,10 +263,13 @@ export default defineComponent({
 }
 
 .bg-error-td {
-    background-color: rgb(241, 59, 59) !important;
+    background-color: rgb(209, 163, 10) !important;
     color: white !important;
 }
 .setting-param-table{
   max-width: 500px;
+}
+.setting_select{
+  width: 300px;
 }
 </style>

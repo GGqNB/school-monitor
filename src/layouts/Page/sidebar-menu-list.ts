@@ -34,6 +34,17 @@ const menuItemsList: Array<MenuItem> = [
     // permission: userCanAny(permissionSet.service.list),
   },
   {
+    id: 1,
+    ordinalNum: 1,
+    title: 'Параметры учреждений',
+    routeName: 'setting_house_admin',
+    index: '1',
+    icon: 'tune',
+    children: [],
+    isAdmin: true,
+    // permission: userCanAny(permissionSet.service.list),
+  },
+  {
     id: 2,
     ordinalNum: 2,
     title: 'Показатели школы',

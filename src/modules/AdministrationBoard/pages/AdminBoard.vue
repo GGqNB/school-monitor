@@ -8,16 +8,15 @@
     <div class="home_wrapper">
     
       <div class="home_wrapper ">
-    <h5 class="mt-base-25">Доступные учреждения</h5>
     <div class="grid " >
       <div @click="handleClick(index)"  v-for="(block, index) in items" :key="index">
-        <div class="block-1" :class="block.ok? 'bg-brand-warning' : 'bg-danger '">
+        <div class="block-1" :class="block.ok? 'bg-brand-warning' : block.ok==null? 'bg-warning ':'bg-danger'">
           <div class="flex justify-center items-center">
            <div class="mt-base-35"> {{ block.title }}</div>
           </div>
         </div>
         <s-dialog :show="activeBlock == index" class="content-block" :rightIconClose="false" :title="block.title">
-          <div class="fs-base-med " v-if="!block.ok">
+          <div class="fs-base-med " v-if="block.ok == false">
             <div>
               Проблемные показатели: 
             </div>
@@ -27,8 +26,23 @@
             <div class="flex  ">
               Младшая школа - <span class="text-red">Время работы узла ч.&nbsp; - &nbsp;30&nbsp;</span> на 08.09.2024 12:35
             </div>
+            
           </div>
-          <div class="fs-base-med " v-else>
+  
+          <!-- <div class="fs-base-med " v-else>
+            <div>
+             Проблем нет
+            </div>
+            </div> -->
+            <div class="fs-base-med " v-if="block.ok == null">
+            <div>
+              Проблемные показатели: 
+            </div>
+    
+            Старшая школа -  <span class="text-orange">Температура (подающий трубопровод)  -&nbsp;25 &nbsp;</span> на 09.09.2024 12:35 
+          </div>
+  
+          <div class="fs-base-med " v-if="block.ok">
             <div>
              Проблем нет
             </div>
@@ -86,12 +100,11 @@ export default defineComponent({
 
       }
       const items = ref([
-        { id: 15, title: 'Гимназия №4', ok : false, description: 'Описание карточки 3' },
-        { id: 16, title: 'Гимназия №5', ok : false, description: 'Описание карточки 3' },
-        { id: 1, title: 'Школа №1', ok : true, description: 'Описание карточки 1' },
+        { id: 1, title: 'Школа №1', ok : false, description: 'Описание карточки 1' },
+        { id: 16, title: 'Гимназия №1', ok : null, description: 'Описание карточки 3' },
         { id: 2, title: 'Школа №2', ok : true, description: 'Описание карточки 2' },
         { id: 3, title: 'Школа №3', ok : true, description: 'Описание карточки 3' },
-      
+        
         { id: 4, title: 'Школа №4', ok : true, description: 'Описание карточки 4' },
         { id: 5, title: 'Школа №5', ok : true, description: 'Описание карточки 5' },
         { id: 6, title: 'Школа №7', ok : true, description: 'Описание карточки 6' },
@@ -99,9 +112,10 @@ export default defineComponent({
         { id: 8, title: 'Школа №9', ok : true, description: 'Описание карточки 3' },
         { id: 9, title: 'Школа №10', ok : true, description: 'Описание карточки 3' },
         { id: 11, title: 'Школа №11', ok : true, description: 'Описание карточки 3' },
-        { id: 12, title: 'Гимназия №1', ok : true, description: 'Описание карточки 3' },
-        { id: 13, title: 'Гимназия №2', ok : true, description: 'Описание карточки 3' },
-        { id: 14, title: 'Гимназия №3', ok : true, description: 'Описание карточки 3' },
+        { id: 12, title: 'Гимназия №2', ok : true, description: 'Описание карточки 3' },
+        { id: 13, title: 'Гимназия №3', ok : true, description: 'Описание карточки 3' },
+        { id: 14, title: 'Гимназия №4', ok : true, description: 'Описание карточки 3' },
+        { id: 15, title: 'Гимназия №5', ok : true, description: 'Описание карточки 3' },
         { id: 17, title: 'Дет.сад №1', ok : true, description: 'Описание карточки 3' },
         { id: 18, title: 'Дет.сад №2', ok : true, description: 'Описание карточки 3' },
         { id: 19, title: 'Дет.сад №3', ok : true, description: 'Описание карточки 3' },

@@ -82,31 +82,31 @@ const mock = ref([
   },
   {
     month: 'Октябрь',
-    upper_school_hvs: 28,
-    little_school_hvs: 32,
-    upper_school_warm: 38,
-    little_school_warm: 43
+    upper_school_hvs: '-',
+    little_school_hvs: '-',
+    upper_school_warm: '-',
+    little_school_warm: '-'
   },
   {
     month: 'Ноябрь',
-    upper_school_hvs: 30,
-    little_school_hvs: 34,
-    upper_school_warm: 40,
-    little_school_warm: 45
+    upper_school_hvs: '-',
+    little_school_hvs: '-',
+    upper_school_warm: '-',
+    little_school_warm: '-',
   },
   {
     month: 'Декабрь',
-    upper_school_hvs: 32,
-    little_school_hvs: 36,
-    upper_school_warm: 42,
-    little_school_warm: 47
+    upper_school_hvs: '-',
+    little_school_hvs: '-',
+    upper_school_warm: '-',
+    little_school_warm: '-',
   },
   {
     month: 'ТЕКУЩЕЕ ЗНАЧЕНИЕ',
-    upper_school_hvs: 210 ,
-    little_school_hvs: 240,
-    upper_school_warm: 270,
-    little_school_warm: 300
+    upper_school_hvs: 162 ,
+    little_school_hvs: 178,
+    upper_school_warm: 246,
+    little_school_warm: 290
   }
 ]);
 

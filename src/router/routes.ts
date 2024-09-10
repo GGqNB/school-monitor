@@ -7,6 +7,8 @@ const SettingHousedPage = () =>
 const ControlPanelPage = () => import('src/modules/ControlPanel/pages/ControlPanelPage.vue');
 const DirectorBoardPage = () =>
   import('src/modules/DirectorBoard/pages/DirectorBoard.vue');
+const SettingHouseAdminPage = () =>
+  import('src/modules/SettingHouseAdmin/pages/List.vue')
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
@@ -35,11 +37,23 @@ const routes: RouteRecordRaw[] = [
 
     meta: {
       title: 'STOWN',
+      authorization: false,
+
+    },
+    
+  },
+  {
+    path: '/setting_house_admin',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [{ path: '', component: SettingHouseAdminPage, name: 'setting_house_admin' }],
+
+    meta: {
+      title: 'STOWN',
       authorization: true,
 
     },
+    
   },
-
   {
     path: '/control_page',
     component: () => import('layouts/MainLayout.vue'),
