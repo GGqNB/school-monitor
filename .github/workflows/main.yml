@@ -20,10 +20,4 @@ jobs:
 
       - name: Run deployment commands
         run: |
-          ssh -o StrictHostKeyChecking=no root@$176.124.209.73 << 'EOF'
-            cd /path/to/your/project
-            git pull origin main
-            docker-compose down
-            docker-compose build
-            docker-compose up -d
-          EOF
+          ssh -o StrictHostKeyChecking=no -vvv -T root@176.124.209.73 "cd school-monitor/ && git pull origin main && docker-compose down && docker-compose build && docker-compose up -d"
