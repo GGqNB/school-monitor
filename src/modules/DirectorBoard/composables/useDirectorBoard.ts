@@ -75,10 +75,10 @@ const mock = ref([
   },
   {
     month: 'Сентябрь',
-    upper_school_hvs: 26,
-    little_school_hvs: 30,
-    upper_school_warm: 36,
-    little_school_warm: 41
+    upper_school_hvs: 5,
+    little_school_hvs: 7,
+    upper_school_warm: 6,
+    little_school_warm: 8
   },
   {
     month: 'Октябрь',
@@ -103,10 +103,10 @@ const mock = ref([
   },
   {
     month: 'ТЕКУЩЕЕ ЗНАЧЕНИЕ',
-    upper_school_hvs: 162 ,
-    little_school_hvs: 178,
-    upper_school_warm: 246,
-    little_school_warm: 290
+    upper_school_hvs: 157 ,
+    little_school_hvs: 171,
+    upper_school_warm: 240,
+    little_school_warm: 282
   }
 ]);
 
