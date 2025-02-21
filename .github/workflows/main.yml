@@ -20,4 +20,4 @@ jobs:
 
       - name: Run deployment commands
         run: |
-          ssh -o StrictHostKeyChecking=no -vvv -T root@176.124.209.73 "cd school-monitor/ && git pull origin main && docker-compose down && docker-compose build && docker-compose up -d"
+          ssh -o StrictHostKeyChecking=no -vvv -T root@188.225.58.13 "cd school-monitor/ && git pull origin main && docker-compose down && docker-compose build && docker-compose up -d"
