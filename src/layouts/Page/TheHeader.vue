@@ -25,7 +25,7 @@
             <q-space />
             <div class="">
                 Я Администрация 
-                <q-checkbox v-model="isAdmin" @click="changeStatusAdmin"/>
+                <q-checkbox color="blue" v-model="isAdmin" @click="changeStatusAdmin"/>
             </div>
         </q-toolbar>
     </q-header>
